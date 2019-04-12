@@ -69,7 +69,7 @@ WHERE last_name LIKE 'E%e';
 SELECT *
 FROM employees WHERE last_name LIKE 'E%' AND last_name LIKE '%E';
 
-SELECT datediff(current_date,hire_date)
+SELECT first_name, last_name,birth_date,hire_date,datediff(current_date,hire_date)
 FROM employees WHERE birth_date LIKE '%-12-25' AND hire_date LIKE '199%-%'
 ORDER BY birth_date, hire_date DESC;
 
@@ -77,3 +77,7 @@ SELECT *
 FROM employees WHERE last_name LIKE '%q%' AND last_name NOT LIKE '%qu%';
 
 
+SELECT last_name, first_name,count(first_name) AS 'count'
+FROM employees
+GROUP BY last_name,first_name
+ORDER BY count(first_name)DESC;
